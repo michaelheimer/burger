@@ -1,6 +1,6 @@
 body
 {
-	background-color: blue;
+	background-color: #3D9970;
 
 }
 .megaContainer
@@ -8,8 +8,9 @@ body
 	
 }
 li {
-  background: #FAEBD7;
-  margin: 5px;
+ /* background: #FAEBD7;
+  width: :50px;
+  margin: 5px;*/
   padding: 5px;
 }
 
@@ -25,4 +26,37 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+.burger_top
+{
+  background-color: #FF7F24;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+ /* position:relative;*/
+}
+.burger_middle
+{
+  background-color: #8B4513;
+  width: 150px;
+  height: :30px;
+  text-align: center;
+  vertical-align: middle;
+}
+button
+{
+  margin-left: 5%;
+  margin-top: 1%;
+}
+.ketchup
+{
+  height: 10px;
+  width: 150px;
+  background-color: red;
+}
+.lettuce
+{
+  height: 10px;
+  width: 150px;
+  background-color: green;
 }

@@ -1,33 +1,42 @@
+<head>
+<link rel="stylesheet" href="public/assets/css/style.css" type="text/css" />
+</head>
 <h1>Burgers</h1>
 
 
 
 <ul>
   {{#each burger}}
-    {{#unless this.devoured}}
+   {{#if devoured}}
       <li>
+      <div class="burger_top"></div>
+      <div class="lettuce"></div>
+      <div class="ketchup"></div>
+     
+       <div class="burger_middle">
         {{this.burger_name}}
-
-        <form action="burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="true">
+       </div>
+        <div class="burger_top"></div>
+        <form action="burger/updateOne/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="this.burger_name" value="this.devoured">
           <button type="submit">devour!!!</button>
         </form>
+       
       </li>
-    {{/unless}}
+      {{/if}}
+      {{else}}
+  
   {{/each}}
 </ul>
 
 
-
-
-
 <h2>Add a burger</h2>
-<form class="" action="/burger/insertOne" method="POST">
+<form class="" action="/burger/insertOne" method="POST" >
 
   <div class="form-group">
     <label for="burger">Bugers:</label>
     <input type="text" id="burger_name" name="burger_name">
-     <input type="hidden" name="devoured" value="0">
+     <input type="hidden" name="devoured" value="1">
   </div>
   <button type="submit">Add Burger</button>
 </form>

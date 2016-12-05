@@ -36,6 +36,7 @@ var orm = {
 	        },
 		   insertOne: function(table, cols, vals, cb) 
 		   {
+		   	console.log(table + "  table");
 		      var queryString = 'INSERT INTO ' + table;
               queryString = queryString + ' (';
 		      queryString = queryString + cols.toString();
@@ -54,13 +55,14 @@ var orm = {
 	       },
 		    updateOne:  function (table, objColVals, condition, cb)
 		               {
+		               	console.log("start of updateOne");
 		                 var queryString = 'UPDATE ' + table;
 		                 queryString = queryString + ' SET ';
-		                 queryString = queryString + objToSql(objColVals);
+		                 queryString = queryString +   'devoured = false';          //objToSql(objColVals);
 		                 queryString = queryString + ' WHERE ';
 		                 queryString = queryString + condition;
 
-		                 console.log(queryString);
+		                 console.log(queryString + " queryString + condition " + condition);
 		                 conn.query(queryString, function (err, result)
 		                 {
 			                if (err) throw err;
@@ -69,6 +71,10 @@ var orm = {
 	                    }
 		};
 	module.exports = orm;
+
+	// connection.query('UPDATE movies SET movie = ? WHERE id = ?', [req.body.movie, req.body.id], function(err, result) {
+ //      if (err) throw err;
+    //  res.redirect('/');
 
 
 

@@ -12,6 +12,7 @@ router.get('/burger', function (req, res)
 {
    burger.selectAll(function (data)
    {
+
 	 var hbsObject = { burger: data };
 	 console.log(hbsObject);
 	 res.render('index', hbsObject);
@@ -20,7 +21,8 @@ router.get('/burger', function (req, res)
 
 router.post('/burger/insertOne', function (req, res) 
 {
-	burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], function () // need work
+	console.log("this is workign");
+	burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], function () 
 	{
 		res.redirect('/burger');
 	});
@@ -28,9 +30,10 @@ router.post('/burger/insertOne', function (req, res)
 
 router.put('/burger/updateOne/:id', function (req, res) 
 {
-	console.log("inside the put updateOne")
+	console.log("inside the put updateOne");
 	var condition = 'id = ' + req.params.id;
     console.log('condition ', condition);
+    console.log(req.body.devoured + " req.body.devoured");
 	burger.updateOne({devoured: req.body.devoured }, condition, function () 
 	{
 		res.redirect('/burger');
